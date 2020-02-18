@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3CBECF23FB05FE009C583B /* SOSTimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */; };
+		7FA6E6F623FB7AAD00E90CCF /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */; };
+		7FA6E6F823FC49EF00E90CCF /* SOSMSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F723FC49EF00E90CCF /* SOSMSConstants.swift */; };
+		7FA6E6FA23FC4A0C00E90CCF /* SOSMSMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */; };
 		7FCF1D4823FA374300602392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4723FA374300602392 /* AppDelegate.swift */; };
 		7FCF1D4A23FA374300602392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4923FA374300602392 /* SceneDelegate.swift */; };
 		7FCF1D4C23FA374300602392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4B23FA374300602392 /* ViewController.swift */; };
 		7FCF1D4F23FA374300602392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4D23FA374300602392 /* Main.storyboard */; };
 		7FCF1D5123FA374400602392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF1D5023FA374400602392 /* Assets.xcassets */; };
 		7FCF1D5423FA374400602392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF1D5223FA374400602392 /* LaunchScreen.storyboard */; };
+		7FE353B223FB636800A46D3F /* SetupUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE353B123FB636800A46D3F /* SetupUIElement.swift */; };
+		7FE353B423FB646C00A46D3F /* SOSMSDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE353B323FB646C00A46D3F /* SOSMSDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSTimerPickerView.swift; sourceTree = "<group>"; };
+		7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
+		7FA6E6F723FC49EF00E90CCF /* SOSMSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSConstants.swift; sourceTree = "<group>"; };
+		7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSMessage.swift; sourceTree = "<group>"; };
 		7FCF1D4423FA374300602392 /* SOSMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF1D4723FA374300602392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF1D4923FA374300602392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,8 @@
 		7FCF1D5023FA374400602392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FCF1D5323FA374400602392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FCF1D5523FA374400602392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE353B123FB636800A46D3F /* SetupUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUIElement.swift; sourceTree = "<group>"; };
+		7FE353B323FB646C00A46D3F /* SOSMSDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F3CBED023FB0757009C583B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */,
+				7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */,
+				7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7FCF1D3B23FA374300602392 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +81,14 @@
 				7FCF1D4723FA374300602392 /* AppDelegate.swift */,
 				7FCF1D4923FA374300602392 /* SceneDelegate.swift */,
 				7FCF1D4B23FA374300602392 /* ViewController.swift */,
+				7FE353B123FB636800A46D3F /* SetupUIElement.swift */,
+				7F3CBED023FB0757009C583B /* Extensions */,
 				7FCF1D4D23FA374300602392 /* Main.storyboard */,
 				7FCF1D5023FA374400602392 /* Assets.xcassets */,
 				7FCF1D5223FA374400602392 /* LaunchScreen.storyboard */,
 				7FCF1D5523FA374400602392 /* Info.plist */,
+				7FE353B323FB646C00A46D3F /* SOSMSDataStore.swift */,
+				7FA6E6F723FC49EF00E90CCF /* SOSMSConstants.swift */,
 			);
 			path = SOSMS;
 			sourceTree = "<group>";
@@ -138,9 +164,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE353B223FB636800A46D3F /* SetupUIElement.swift in Sources */,
 				7FCF1D4C23FA374300602392 /* ViewController.swift in Sources */,
+				7FA6E6F623FB7AAD00E90CCF /* ExtString.swift in Sources */,
+				7FA6E6FA23FC4A0C00E90CCF /* SOSMSMessage.swift in Sources */,
+				7FE353B423FB646C00A46D3F /* SOSMSDataStore.swift in Sources */,
+				7F3CBECF23FB05FE009C583B /* SOSTimerPickerView.swift in Sources */,
 				7FCF1D4823FA374300602392 /* AppDelegate.swift in Sources */,
 				7FCF1D4A23FA374300602392 /* SceneDelegate.swift in Sources */,
+				7FA6E6F823FC49EF00E90CCF /* SOSMSConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
