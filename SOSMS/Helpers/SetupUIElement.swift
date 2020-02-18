@@ -10,14 +10,6 @@ import Foundation
 import UIKit
 
 class SetupUIElement {
-    func setupPickerView(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UIPickerView {
-              let pickerView = UIPickerView(frame: CGRect(x: x, y: y, width: width, height: height))
-              pickerView.delegate = vc
-              pickerView.dataSource = vc
-              
-              pickerView.center.x = (vc.view.center.x * 1.30)
-              return pickerView
-          }
        
        func setupTextField(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UITextField {
            let textField =  UITextField(frame: CGRect(x: x, y: y, width: width, height: height))
