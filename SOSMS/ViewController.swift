@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 //
@@ -16,7 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 //    @IBOutlet weak var timeUnitPickerView: UIPickerView!
 //    @IBOutlet weak var sendButton: UIButton!
 //
-    var pauseButton = UIButton()
+    let center = UNUserNotificationCenter.current()
+    let content = UNMutableNotificationContent()
     var resetButton = UIButton()
     var dataStore = SOSMSDataStore.sharedInstance
     var setupClass = SetupUIElement()
@@ -36,6 +38,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.registerLocal()
+        
         if (dataStore.defaults.hasValue(forKey: "senderName")) {
             setupClass.hideButtons(buttonsToHide: [previousButton])
         } else {
@@ -51,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         self.setupView()
         self.view.addSubview(previousButton)
         self.view.addSubview(startButton)
-        self.view.addSubview(pauseButton)
+//        self.view.addSubview(pauseButton)
         self.view.addSubview(resetButton)
         self.view.addSubview(senderTextField)
         self.view.addSubview(timeUnitPickerView)
@@ -112,6 +116,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             return
         }
             timerTime = Int(timeAmount) ?? 0
+        self.scheduleLocal()
             runTimer()
             timerIsRunning = true
             timeAmountTextField.isEnabled = false
@@ -199,6 +204,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         
         SOSMSLabel = setupClass.setupLabel(vc: self, x: x, y: 600.0, width: width, height: 80.0)
         
+        startButton.backgroundColor = .green
+        pauseButton.backgroundColor = .gray
+        resetButton.backgroundColor = .red
         pauseButton.setTitle("Pause Timer", for: .normal)
         resetButton.setTitle("Reset Timer", for: .normal)
         
@@ -239,6 +247,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         
     }
     @objc func resetButtonPressed() {
+        center.removeAllPendingNotificationRequests()
         timer.invalidate()
         timerTime = Int(timeAmountTextField.text!) ?? 0
         SOSMSLabel.text = timeString(time: TimeInterval(timerTime))
@@ -251,10 +260,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     }
     
     @objc func updateTimer() {
+        print("Timer, \(timerTime)")
         if timerTime < 1 {
              timer.invalidate()
             setupClass.hideButtons(buttonsToHide: [pauseButton, resetButton])
             setupClass.showButtons(buttonsToShow: [startButton])
+            
              //Send alert to indicate "time's up!"
         } else {
         timerTime -= 1     //This will decrement(count down)the seconds.

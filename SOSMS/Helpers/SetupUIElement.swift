@@ -29,7 +29,6 @@ class SetupUIElement {
        
     func setupButton(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UIButton {
            let button =  UIButton(frame: CGRect(x: x, y: y, width: width, height: height))
-           button.backgroundColor = .systemPink
            button.layer.cornerRadius = 5
            button.center.x = vc.view.center.x
            return button
