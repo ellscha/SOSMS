@@ -1,5 +1,5 @@
 //
-//  SOSMSUserDefaultsExts.swift
+//  SOSMSUserDefaultsExt.swift
 //  SOSMS
 //
 //  Created by ELLI SCHARLIN on 2/18/20.
@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+extension UserDefaults {
+
+    func hasValue(forKey key: String) -> Bool {
+        return nil != object(forKey: key)
+    }
+}

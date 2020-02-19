@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F3CBECF23FB05FE009C583B /* SOSTimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */; };
-		7F97AC0323FC89D500BDBF11 /* SOSMSUserNotficationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97AC0223FC89D500BDBF11 /* SOSMSUserNotficationsHelper.swift */; };
-		7FA6E6F623FB7AAD00E90CCF /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */; };
-		7FA6E6FA23FC4A0C00E90CCF /* SOSMSMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */; };
+		7F97AC0323FC89D500BDBF11 /* SOSMSViewControllerEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97AC0223FC89D500BDBF11 /* SOSMSViewControllerEXT.swift */; };
+		7F97AC0723FCE27400BDBF11 /* SOSMSEXTLablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97AC0623FCE27400BDBF11 /* SOSMSEXTLablesViewController.swift */; };
+		7F97AC0923FCE3AB00BDBF11 /* SOSMSUserDefaultsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97AC0823FCE3AB00BDBF11 /* SOSMSUserDefaultsExt.swift */; };
+		7FA6E6F623FB7AAD00E90CCF /* SOSMSStringEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6E6F523FB7AAD00E90CCF /* SOSMSStringEXT.swift */; };
 		7FCF1D4823FA374300602392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4723FA374300602392 /* AppDelegate.swift */; };
 		7FCF1D4A23FA374300602392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4923FA374300602392 /* SceneDelegate.swift */; };
 		7FCF1D4C23FA374300602392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF1D4B23FA374300602392 /* ViewController.swift */; };
@@ -22,11 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSTimerPickerView.swift; sourceTree = "<group>"; };
-		7F97AC0223FC89D500BDBF11 /* SOSMSUserNotficationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSUserNotficationsHelper.swift; sourceTree = "<group>"; };
+		7F97AC0223FC89D500BDBF11 /* SOSMSViewControllerEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSViewControllerEXT.swift; sourceTree = "<group>"; };
 		7F97AC0523FC95CF00BDBF11 /* SOSMSRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOSMSRelease.entitlements; sourceTree = "<group>"; };
-		7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
-		7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSMessage.swift; sourceTree = "<group>"; };
+		7F97AC0623FCE27400BDBF11 /* SOSMSEXTLablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSEXTLablesViewController.swift; sourceTree = "<group>"; };
+		7F97AC0823FCE3AB00BDBF11 /* SOSMSUserDefaultsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSUserDefaultsExt.swift; sourceTree = "<group>"; };
+		7FA6E6F523FB7AAD00E90CCF /* SOSMSStringEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMSStringEXT.swift; sourceTree = "<group>"; };
 		7FCF1D4423FA374300602392 /* SOSMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF1D4723FA374300602392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF1D4923FA374300602392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +53,10 @@
 		7F3CBED023FB0757009C583B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7F3CBECE23FB05FE009C583B /* SOSTimerPickerView.swift */,
-				7FA6E6F523FB7AAD00E90CCF /* ExtString.swift */,
-				7FA6E6F923FC4A0C00E90CCF /* SOSMSMessage.swift */,
+				7F97AC0223FC89D500BDBF11 /* SOSMSViewControllerEXT.swift */,
+				7FA6E6F523FB7AAD00E90CCF /* SOSMSStringEXT.swift */,
+				7F97AC0623FCE27400BDBF11 /* SOSMSEXTLablesViewController.swift */,
+				7F97AC0823FCE3AB00BDBF11 /* SOSMSUserDefaultsExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -72,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				7FE353B123FB636800A46D3F /* SetupUIElement.swift */,
-				7F97AC0223FC89D500BDBF11 /* SOSMSUserNotficationsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,14 +191,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE353B223FB636800A46D3F /* SetupUIElement.swift in Sources */,
-				7F97AC0323FC89D500BDBF11 /* SOSMSUserNotficationsHelper.swift in Sources */,
+				7F97AC0723FCE27400BDBF11 /* SOSMSEXTLablesViewController.swift in Sources */,
+				7F97AC0323FC89D500BDBF11 /* SOSMSViewControllerEXT.swift in Sources */,
 				7FCF1D4C23FA374300602392 /* ViewController.swift in Sources */,
-				7FA6E6F623FB7AAD00E90CCF /* ExtString.swift in Sources */,
-				7FA6E6FA23FC4A0C00E90CCF /* SOSMSMessage.swift in Sources */,
+				7FA6E6F623FB7AAD00E90CCF /* SOSMSStringEXT.swift in Sources */,
 				7FE353B423FB646C00A46D3F /* SOSMSDataStore.swift in Sources */,
-				7F3CBECF23FB05FE009C583B /* SOSTimerPickerView.swift in Sources */,
 				7FCF1D4823FA374300602392 /* AppDelegate.swift in Sources */,
 				7FCF1D4A23FA374300602392 /* SceneDelegate.swift in Sources */,
+				7F97AC0923FCE3AB00BDBF11 /* SOSMSUserDefaultsExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
