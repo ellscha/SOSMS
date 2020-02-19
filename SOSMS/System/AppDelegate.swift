@@ -32,9 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Fetch no sooner than every (60) seconds which is thrillingly short actually.
         // Defaults to Infinite if not set.
-        UIApplication.shared.setMinimumBackgroundFetchInterval( 60 )
+        UIApplication.shared.setMinimumBackgroundFetchInterval(60)
     }
-    
-    
 }
 

@@ -12,40 +12,44 @@ import UIKit
 class SetupUIElement {
        
        func setupTextField(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UITextField {
-           let textField =  UITextField(frame: CGRect(x: x, y: y, width: width, height: height))
-           textField.delegate = vc
-           textField.returnKeyType = .done
-           textField.backgroundColor = .lightGray
-           return textField
+           let UIElement =  UITextField(frame: CGRect(x: x, y: y, width: width, height: height))
+           UIElement.delegate = vc
+           UIElement.returnKeyType = .done
+           UIElement.backgroundColor = .lightGray
+        UIElement.layer.cornerRadius = 5
+        UIElement.borderStyle = .roundedRect
+
+           return UIElement
        }
        
     func setupButton(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UIButton {
-           let button =  UIButton(frame: CGRect(x: x, y: y, width: width, height: height))
-           button.layer.cornerRadius = 5
-           button.center.x = vc.view.center.x
-           return button
+           let UIElement =  UIButton(frame: CGRect(x: x, y: y, width: width, height: height))
+           UIElement.layer.cornerRadius = 5
+           UIElement.center.x = vc.view.center.x
+        UIElement.backgroundColor = .lightGray
+           return UIElement
        }
     
     func setupLabel(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UILabel {
-           let label =  UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
-           label.backgroundColor = .systemPink
-           label.layer.cornerRadius = 5
-           label.center.x = vc.view.center.x
-        label.adjustsFontForContentSizeCategory = true
-        label.lineBreakMode = .byCharWrapping
-        label.textAlignment = .center
-           return label
+           let UIElement =  UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
+           UIElement.backgroundColor = .systemPink
+           UIElement.center.x = vc.view.center.x
+        UIElement.adjustsFontForContentSizeCategory = true
+        UIElement.textAlignment = .center
+           return UIElement
        }
        
        func setupTextView(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UITextView {
-           let textView =  UITextView(frame: CGRect(x: x, y: y, width: width, height: height))
-           textView.delegate = vc
-           textView.returnKeyType = .default
-           textView.backgroundColor = .darkGray
-           textView.center.x = vc.view.center.x
-           textView.resignFirstResponder()
-           textView.text = "Come home, your brother has fallen off the wagon and needs you."
-           textView.textColor = UIColor.lightGray
+           let UIElement =  UITextView(frame: CGRect(x: x, y: y, width: width, height: height))
+           UIElement.delegate = vc
+        UIElement.layer.cornerRadius = 5
+
+           UIElement.returnKeyType = .default
+           UIElement.backgroundColor = .darkGray
+           UIElement.center.x = vc.view.center.x
+           UIElement.resignFirstResponder()
+           UIElement.text = "Come home, your brother has fallen off the wagon and needs you."
+           UIElement.textColor = UIColor.lightGray
            let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: vc.view.frame.size.width, height: 30))
            //create left side empty space so that done button set on right side
            let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
@@ -53,9 +57,9 @@ class SetupUIElement {
            toolbar.setItems([flexSpace, doneBtn], animated: false)
            toolbar.sizeToFit()
            //setting toolbar as inputAccessoryView
-           textView.inputAccessoryView = toolbar
+           UIElement.inputAccessoryView = toolbar
            
-           return textView
+           return UIElement
        }
         
         @objc func doneButtonAction(vc: ViewController) {

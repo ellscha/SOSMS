@@ -13,14 +13,7 @@ extension ViewController {
     
     func scheduleLocal() {
 
-        self.content.title = dataStore.senderName
-        self.content.body = dataStore.messageBody
-        self.content.sound = UNNotificationSound.default
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds), repeats: false)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        center.add(request)
     }
     
     @objc func registerLocal() {

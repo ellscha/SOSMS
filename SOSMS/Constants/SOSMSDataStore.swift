@@ -17,12 +17,11 @@ final class SOSMSDataStore {
     // Defaults.
     var senderName: String = "MOM"
     var messageBody: String = "Hi Honey, It's Mom, I tried calling... EMERGENCY at HOME COME HOME NOW!"
-    var timeAmountInSeconds: Int = 60
+    var timeAmountInSeconds: Int = 10
     
     let defaults = UserDefaults.standard
     
     func setDefaults() {
-        defaults.set(timeAmountInSeconds, forKey: "timeAmountInSeconds")
         defaults.set(messageBody, forKey: "messageBody")
         defaults.set(senderName, forKey: "senderName")
         defaults.synchronize()
