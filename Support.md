@@ -1,4 +1,4 @@
-# SOSMS
+# SOSMS / Message-SOS
 I hate having to rely on my friends or family being near a phone when I am in an uncomfortable situation. I created SOSMS for exactly this reason.
 1. Find a reason to excuse yourself... go to the bathroom or over to the bar.
 2. take out your phone and open up SOSMS.
