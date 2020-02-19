@@ -47,7 +47,8 @@ extension ViewController {
     
     func sendingInProgress() {
         //        DispatchQueue.main.async {
-        
+        // Not doing in dispatch because of timing, need to move to a completion handler eventually...too hacky rn for both
+        self.messageBodyTextView.resignFirstResponder()
         self.statusLabel1.isHidden = false
         self.statusLabel2.isHidden = false
         self.statusLabel3.isHidden = false
@@ -55,6 +56,7 @@ extension ViewController {
         self.statusLabel5.isHidden = false
         self.startButton.isHidden = true
         self.messageBodyTextView.isHidden = true
+        self.messageBodyTextView.resignFirstResponder()
         self.senderTextField.isHidden = true
         self.previousButton.isHidden = true
         //        }
