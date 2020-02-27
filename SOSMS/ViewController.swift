@@ -11,6 +11,8 @@ import UserNotifications
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    var didShow = false
+    var isAuthorized: Bool = false
     let center = UNUserNotificationCenter.current()
     let contentCustom = UNMutableNotificationContent()
     let content2 = UNMutableNotificationContent()
@@ -24,11 +26,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     var pauseButton = UIButton()
     var resetButton = UIButton()
     var cancelButton = UIButton()
-    var statusLabel1 = UILabel()
-    var statusLabel2 = UILabel()
-    var statusLabel3 = UILabel()
-    var statusLabel4 = UILabel()
-    var statusLabel5 = UILabel()
+    var messageSentLabel = UILabel()
+    var nameInfo = UILabel()
+    var messageInfo = UILabel()
+
+
+//    var statusLabel1 = UILabel()
+//    var statusLabel2 = UILabel()
+//    var statusLabel3 = UILabel()
+//    var statusLabel4 = UILabel()
+//    var statusLabel5 = UILabel()
     var timer = Timer()
     var timerIsRunning = false
     let timeUnits = ["seconds", "minutes", "hours"]
@@ -38,20 +45,48 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         self.registerLocal()
     }
     
+    
+    func welcomeUser() {
+        DispatchQueue.main.async {
+            self.onBoardingUI()
+            self.view.addSubview(self.messageInfo)
+            self.view.addSubview(self.nameInfo)
+
+            self.nameInfo.flashOnBoard()
+            self.messageInfo.flashOnBoard()
+        let alert = UIAlertController(title:
+                   "Welcome to Message-SOS!", message: "To get started, customize the text boxes above, and then hit send.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "Got it", style: .default, handler:{ (alert) -> Void in
+                self.nameInfo.isHidden = true
+                self.messageInfo.isHidden = true
+               }))
+               self.present(alert, animated: true)
+        }
+        
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        
-        
+        if !didShow {
+            self.messageInfo.alpha = 1.0
+            self.nameInfo.alpha = 1.0
+            self.welcomeUser()
+            didShow = true
+        }
+        print("will appear")
         super.viewWillAppear(animated)
         self.setupView()
-        self.view.addSubview(previousButton)
+//        self.view.addSubview(previousButton)
         self.view.addSubview(startButton)
         self.view.addSubview(senderTextField)
         self.view.addSubview(messageBodyTextView)
-        self.view.addSubview(statusLabel1)
-        self.view.addSubview(statusLabel2)
-        self.view.addSubview(statusLabel3)
-        self.view.addSubview(statusLabel4)
-        self.view.addSubview(statusLabel5)
+        self.view.addSubview(messageSentLabel)
+
+//        self.view.addSubview(statusLabel1)
+//        self.view.addSubview(statusLabel2)
+//        self.view.addSubview(statusLabel3)
+//        self.view.addSubview(statusLabel4)
+//        self.view.addSubview(statusLabel5)
         
         readyToSend()
         
@@ -71,6 +106,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     }
     
     @objc func goButtonAction() {
+        if !isAuthorized {
+            self.presentAuthAlert()
+            self.registerLocal()
+            return
+        }
         guard let senderName = senderTextField.text else {
             return
         }
@@ -87,6 +127,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         dataStore.setDefaults()
         
         print(dataStore.timeAmountInSeconds, dataStore.messageBody, dataStore.senderName)
+        
+        self.messageSentLabel.flashSendLabel()
+        
+        
     }
     
     @objc func doneButtonAction(vc: ViewController) {
@@ -115,22 +159,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     }
     
     func runTimer() {
-        self.sendingInProgress()
+//        self.sendingInProgress()
         setupContent(contents: [contentCustom, content2, content3])
         
         contentCustom.body = dataStore.messageBody
-        content2.body = "HELLO!??"
-        content3.body = "ANSWER ME OR CALL ME BACK NOW!!"
+        content2.body = "lmk asap"
+//        content3.body = "ANSWER ME OR CALL ME BACK NOW!!"
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds), repeats: false)
-        let triggerDelay1 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 5), repeats: false)
-        let triggerDelay2 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 15), repeats: false)
+//        let triggerDelay1 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 5), repeats: false)
+//        let triggerDelay2 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 15), repeats: false)
         
         let req = UNNotificationRequest(identifier: "message1", content: contentCustom, trigger: trigger)
         
-        let req2 = UNNotificationRequest(identifier: "message2", content: content2, trigger: triggerDelay1)
+//        let req2 = UNNotificationRequest(identifier: "message2", content: content2, trigger: triggerDelay1)
         
-        let req3 = UNNotificationRequest(identifier: "message3", content: content3, trigger: triggerDelay2)
+//        let req3 = UNNotificationRequest(identifier: "message3", content: content3, trigger: triggerDelay2)
         
         center.add(req, withCompletionHandler: { (error) in
             if let error = error {
@@ -141,22 +185,41 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
                 self.successfulSend()
             }
         })
-        center.add(req2, withCompletionHandler: { (error) in
-            if let error = error {
-                print("\n\t ERROR: \(error)")
-            } else {
-                print("second one! \(self.content2.body)")
-            }
-        })
-        center.add(req3, withCompletionHandler: { (error) in
-            if let error = error {
-                print("\n\t ERROR: \(error)")
-            } else {
-                print("third one! \(self.content3.body)")
-                
-                self.successfulSend()
-            }
-        })
+//        center.add(req2, withCompletionHandler: { (error) in
+//            if let error = error {
+//                print("\n\t ERROR: \(error)")
+//            } else {
+//                print("second one! \(self.content2.body)")
+//            }
+//        })
+//        center.add(req3, withCompletionHandler: { (error) in
+//            if let error = error {
+//                print("\n\t ERROR: \(error)")
+//            } else {
+//                print("third one! \(self.content3.body)")
+//
+//                self.successfulSend()
+//            }
+//        })
     }
 }
 
+extension UILabel {
+
+    func flashSendLabel() {
+        UILabel.animate(withDuration: 2.0,
+                        delay: 3.0,
+                options: [],
+                animations: { [self.alpha = 1, self.alpha = 0] }
+        )
+    }
+    
+    func flashOnBoard() {
+        UILabel.animate(withDuration: 0.75,
+                        delay: 0.0,
+                        options: [.repeat, .autoreverse],
+                        animations: { [self.backgroundColor = .systemTeal, self.backgroundColor = .systemGreen] }
+        )
+    }
+
+}

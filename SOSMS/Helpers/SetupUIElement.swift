@@ -34,10 +34,15 @@ class SetupUIElement {
     
     func setupLabel(vc: ViewController, x: Double, y: Double, width: Double, height: Double) -> UILabel {
         let UIElement =  UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
-        UIElement.backgroundColor = .systemPink
+        UIElement.backgroundColor = .systemGreen
+        UIElement.alpha = 0
         UIElement.center.x = vc.view.center.x
         UIElement.adjustsFontForContentSizeCategory = true
         UIElement.textAlignment = .center
+        UIElement.layer.cornerRadius = 5
+        UIElement.font = UIElement.font.withSize(20.0)
+        UIElement.allowsDefaultTighteningForTruncation = true
+        
         return UIElement
     }
     
@@ -50,7 +55,7 @@ class SetupUIElement {
         UIElement.backgroundColor = .lightGray
         UIElement.center.x = vc.view.center.x
         UIElement.resignFirstResponder()
-        UIElement.text = "Come home, your brother has fallen off the wagon and needs you."
+        UIElement.text = "Hey, I'm running late, any chance you can walk the dog?"
         UIElement.textColor = UIColor.white
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: vc.view.frame.size.width, height: 30))
         //create left side empty space so that done button set on right side
