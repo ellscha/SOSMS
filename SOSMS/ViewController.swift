@@ -52,10 +52,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
             self.view.addSubview(self.messageInfo)
             self.view.addSubview(self.nameInfo)
 
-            self.nameInfo.flashOnBoard()
-            self.messageInfo.flashOnBoard()
+            self.nameInfo.flashSendLabelWith()
+            self.messageInfo.flashSendLabelWith()
         let alert = UIAlertController(title:
                    "Welcome to Message-SOS!", message: "To get started, customize the text boxes above, and then hit send.", preferredStyle: .alert)
+            
                alert.addAction(UIAlertAction(title: "Got it", style: .default, handler:{ (alert) -> Void in
                 self.nameInfo.isHidden = true
                 self.messageInfo.isHidden = true
@@ -128,7 +129,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         
         print(dataStore.timeAmountInSeconds, dataStore.messageBody, dataStore.senderName)
         
-        self.messageSentLabel.flashSendLabel()
+        self.messageSentLabel.flashSendLabelWith(delay: 3.0, duration: 2.0, doesRepeat: false)
         
         
     }
@@ -206,19 +207,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
 
 extension UILabel {
 
-    func flashSendLabel() {
-        UILabel.animate(withDuration: 2.0,
-                        delay: 3.0,
-                options: [],
+    func flashSendLabelWith(delay: Double = 1.7, duration: Double = 1.0, doesRepeat: Bool = true) {
+        UILabel.animate(withDuration: duration,
+                        delay: delay,
+                        options: doesRepeat ? [.repeat, .autoreverse] : [],
                 animations: { [self.alpha = 1, self.alpha = 0] }
-        )
-    }
-    
-    func flashOnBoard() {
-        UILabel.animate(withDuration: 0.75,
-                        delay: 0.0,
-                        options: [.repeat, .autoreverse],
-                        animations: { [self.backgroundColor = .systemTeal, self.backgroundColor = .systemGreen] }
         )
     }
 
