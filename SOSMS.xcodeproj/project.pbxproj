@@ -351,7 +351,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "elli-no-e.SOSMS";
 				PRODUCT_NAME = "Message-SOS";
 				SWIFT_VERSION = 5.0;
@@ -372,7 +372,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elli-no-e.SOSMS";
 				PRODUCT_NAME = "Message-SOS";
 				PROVISIONING_PROFILE_SPECIFIER = "";

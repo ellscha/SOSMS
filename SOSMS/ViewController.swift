@@ -41,8 +41,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     let timeUnits = ["seconds", "minutes", "hours"]
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.registerLocal()
+        super.viewDidLoad()
     }
     
     
@@ -166,12 +166,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
         contentCustom.body = dataStore.messageBody
         content2.body = "lmk asap"
 //        content3.body = "ANSWER ME OR CALL ME BACK NOW!!"
+        let uuid = UUID()
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds), repeats: false)
 //        let triggerDelay1 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 5), repeats: false)
 //        let triggerDelay2 = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dataStore.timeAmountInSeconds + 15), repeats: false)
         
-        let req = UNNotificationRequest(identifier: "message1", content: contentCustom, trigger: trigger)
+        // Using UUID so that it is unique each time the button is clicked, this allows the notification to remain until interacted with.
+        let req = UNNotificationRequest(identifier: "\(uuid)", content: contentCustom, trigger: trigger)
         
 //        let req2 = UNNotificationRequest(identifier: "message2", content: content2, trigger: triggerDelay1)
         
